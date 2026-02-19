@@ -139,8 +139,8 @@ section {
 }
 
 .project-preview {
-  width: 220px;
-  flex-shrink: 0;
+  flex: 0 0 220px;
+  max-width: 220px;
   overflow: hidden;
 }
 
