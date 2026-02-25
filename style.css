@@ -1,3 +1,49 @@
+/* ── Theme Variables ── */
+
+:root {
+  --bg: #fff;
+  --text: #333;
+  --heading: #111;
+  --text-secondary: #444;
+  --text-tertiary: #555;
+  --text-muted: #666;
+  --text-faint: #999;
+  --link: #0066cc;
+  --link-hover: #004999;
+  --border: #eee;
+  --surface: #ddd;
+  --surface-light: #e8e8e8;
+  --photo-text: #888;
+}
+
+[data-theme="dark"] {
+  --bg: #1c1c1d;
+  --text: #e8e8e8;
+  --heading: #f0f0f0;
+  --text-secondary: #c8c8c8;
+  --text-tertiary: #b0b0b0;
+  --text-muted: #a0a0a0;
+  --text-faint: #828282;
+  --link: #6db3f2;
+  --link-hover: #9dd0ff;
+  --border: #424246;
+  --surface: #2c2c2e;
+  --surface-light: #212529;
+  --photo-text: #828282;
+}
+
+/* ── Transition Effect (al-folio style) ── */
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 500ms !important;
+  transition-delay: 0s !important;
+}
+
+/* ── Reset ── */
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +56,34 @@ html {
 
 body {
   font-family: 'Inter', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #333;
+  color: var(--text);
   line-height: 1.6;
-  background: #fff;
+  background: var(--bg);
 }
+
+/* ── Theme Toggle ── */
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 100;
+  line-height: 1;
+  padding: 0.25rem;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+html:not([data-theme="dark"]) .theme-toggle .fa-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 
 /* ── Sections ── */
 
@@ -39,19 +109,19 @@ section {
   width: 240px;
   height: 240px;
   border-radius: 6px;
-  background: #ddd;
+  background: var(--surface);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #888;
+  color: var(--photo-text);
 }
 
 .about-text .email {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--text-tertiary);
   font-family: monospace;
   margin-bottom: 1rem;
 }
@@ -59,29 +129,29 @@ section {
 .about-text h1 {
   font-size: 1.8rem;
   margin-bottom: 0.3rem;
-  color: #111;
+  color: var(--heading);
 }
 
 .about-text .tagline {
   font-size: 1.05rem;
-  color: #666;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
 .about-text p {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .inline-link {
-  color: #0066cc;
+  color: var(--link);
   text-decoration: none;
   font-weight: 500;
 }
 
 .inline-link:hover {
-  color: #004999;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
@@ -92,7 +162,7 @@ section {
 }
 
 .contact-links a {
-  color: #0066cc;
+  color: var(--link);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -100,7 +170,7 @@ section {
 }
 
 .contact-links a:hover {
-  color: #004999;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
@@ -109,12 +179,12 @@ section {
 #research h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #111;
+  color: var(--heading);
 }
 
 #research p {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 
@@ -135,17 +205,17 @@ section {
 
 #news details summary h2 {
   font-size: 1.5rem;
-  color: #111;
+  color: var(--heading);
 }
 
 #news details summary::after {
-  content: '▸';
+  content: '\25B8';
   font-size: 1.1rem;
-  color: #555;
+  color: var(--text-tertiary);
 }
 
 #news details[open] summary::after {
-  content: '▾';
+  content: '\25BE';
 }
 
 .news-list {
@@ -155,14 +225,14 @@ section {
 
 .news-list li {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-secondary);
   padding: 0.4rem 0;
   line-height: 1.5;
 }
 
 .news-date {
   font-weight: 600;
-  color: #111;
+  color: var(--heading);
   margin-right: 0.75rem;
 }
 
@@ -171,7 +241,7 @@ section {
 #projects h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: #111;
+  color: var(--heading);
 }
 
 .project-entry {
@@ -179,7 +249,7 @@ section {
   gap: 1.5rem;
   align-items: flex-start;
   padding: 1.5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border);
 }
 
 .project-entry:last-child {
@@ -203,24 +273,24 @@ section {
 .preview-placeholder {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #e8e8e8;
+  background: var(--surface-light);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
-  color: #999;
+  color: var(--text-faint);
 }
 
 .project-info h3 {
   font-size: 1.05rem;
-  color: #111;
+  color: var(--heading);
   margin-bottom: 0.4rem;
 }
 
 .project-info p {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--text-tertiary);
   line-height: 1.6;
   margin-bottom: 0.6rem;
 }
@@ -228,7 +298,7 @@ section {
 .project-info h3 .project-link {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #0066cc;
+  color: var(--link);
   text-decoration: none;
   margin-left: 0.5rem;
 }
@@ -245,8 +315,8 @@ footer {
   text-align: center;
   padding: 2rem 1.5rem;
   font-size: 0.82rem;
-  color: #999;
-  /*border-top: 1px solid #eee;*/
+  color: var(--text-faint);
+  /*border-top: 1px solid var(--border);*/
 }
 
 /* ── Responsive ── */
