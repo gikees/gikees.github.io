@@ -126,6 +126,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  outline: none;
 }
 
 #news details summary::-webkit-details-marker {
@@ -139,8 +140,8 @@ section {
 
 #news details summary::after {
   content: '▸';
-  font-size: 0.9rem;
-  color: #999;
+  font-size: 1.1rem;
+  color: #555;
 }
 
 #news details[open] summary::after {
