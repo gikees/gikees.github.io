@@ -123,6 +123,9 @@ section {
 #news details summary {
   cursor: pointer;
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 #news details summary::-webkit-details-marker {
@@ -132,17 +135,16 @@ section {
 #news details summary h2 {
   font-size: 1.5rem;
   color: #111;
-  display: inline;
 }
 
-#news details summary h2::after {
-  content: ' ▸';
+#news details summary::after {
+  content: '▸';
   font-size: 0.9rem;
   color: #999;
 }
 
-#news details[open] summary h2::after {
-  content: ' ▾';
+#news details[open] summary::after {
+  content: '▾';
 }
 
 .news-list {
