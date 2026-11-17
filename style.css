@@ -94,7 +94,9 @@ section {
 
 .contact-links {
   display: flex;
-  gap: 1.2rem;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  gap: 0.3rem 1.2rem;
   margin-top: 0.5rem;
 }
 
@@ -303,6 +305,8 @@ footer {
   }
 
   .project-preview {
+    flex: none; /* the desktop 220px basis would become a 220px height in a column */
+    max-width: none;
     width: 100%;
   }
 }
