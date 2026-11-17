@@ -15,6 +15,13 @@ body {
   background: #fff;
 }
 
+#life {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 /* ── Sections ── */
 
 section {
