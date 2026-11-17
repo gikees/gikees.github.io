@@ -175,7 +175,8 @@ section {
 
 /* ── Projects ── */
 
-#projects h2 {
+#projects h2,
+#publications h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #111;
@@ -197,6 +198,12 @@ section {
   flex: 0 0 220px;
   max-width: 220px;
   overflow: hidden;
+}
+
+.project-preview video {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
 }
 
 .project-preview img {
@@ -242,6 +249,14 @@ section {
 
 .project-info h3 .project-link:hover {
   text-decoration: underline;
+}
+
+.award {
+  color: #c00;
+}
+
+.me {
+  color: #111;
 }
 
 /* ── Footer ── */
